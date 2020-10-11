@@ -41,8 +41,9 @@ export const ResultCard: React.FC<IResultCardProps> = ({ movie }) => {
             >
               ADD TO WATCHLIST
             </Button>
-            <Rate allowHalf disabled defaultValue={movie.vote_average/2} />
-            {movie.vote_average}
+            <Rate allowHalf disabled defaultValue={movie.vote_average / 2}>
+              {movie.vote_average}
+            </Rate>
           </div>
         </div>
       </div>

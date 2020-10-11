@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
-import { Button, Rate } from 'antd';
+import { Button, Popover, Rate } from 'antd';
 
 interface IResultCardProps {
   movie: any
@@ -12,6 +12,13 @@ export const ResultCard: React.FC<IResultCardProps> = ({ movie }) => {
   let storedMovie = watchlist.find((o: any) => o.id === movie.id);
 
   const watchlistDisabled = storedMovie ? true : false;
+
+  const content = (
+    <div>
+      <p>Content</p>
+      <p>Content</p>
+    </div>
+  );
 
   return (
     <div>
@@ -41,7 +48,10 @@ export const ResultCard: React.FC<IResultCardProps> = ({ movie }) => {
             >
               ADD TO WATCHLIST
             </Button>
+            <Popover content={content} title="Title">
             <Rate allowHalf disabled defaultValue={movie.vote_average/2} />
+            </Popover>
+            
             {movie.vote_average}
           </div>
         </div>
